@@ -1,0 +1,99 @@
+{
+    "territories": [
+        {
+            "id": 1,
+            "name": "India",
+            "parentId": 0
+        },
+        {
+            "id": 2,
+            "name": "Maharashtra",
+            "parentId": 1
+        },
+        {
+            "id": 3,
+            "name": "Tamil Nadu",
+            "parentId": 1
+        },
+        {
+            "id": 8,
+            "name": "Mumbai",
+            "parentId": 2
+        },
+        {
+            "id": 9,
+            "name": "Chennai",
+            "parentId": 3
+        },
+        {
+            "id": 4,
+            "name": "Karnataka",
+            "parentId": 1
+        },
+        {
+            "id": 10,
+            "name": "Bengaluru",
+            "parentId": 4
+        },
+        {
+            "id": 11,
+            "name": "Indiranagar",
+            "parentId": 10
+        },
+        {
+            "id": 5,
+            "name": "Kerala",
+            "parentId": 1
+        },
+        {
+            "id": 12,
+            "name": "Kochi",
+            "parentId": 5
+        },
+        {
+            "id": 19,
+            "name": "Infopark",
+            "parentId": 12
+        },
+        {
+            "id": 13,
+            "name": "Trivandrum",
+            "parentId": 5
+        },
+        {
+            "id": 18,
+            "name": "Technopark",
+            "parentId": 13
+        },
+        {
+            "id": 6,
+            "name": "Andhra Pradesh",
+            "parentId": 1
+        },
+        {
+            "id": 14,
+            "name": "Visakhapatnam",
+            "parentId": 6
+        },
+        {
+            "id": 15,
+            "name": "Vijayawada",
+            "parentId": 6
+        },
+        {
+            "id": 7,
+            "name": "Telangana",
+            "parentId": 1
+        },
+        {
+            "id": 16,
+            "name": "Hyderabad",
+            "parentId": 7
+        },
+        {
+            "id": 17,
+            "name": "Secunderabad",
+            "parentId": 16
+        }
+    ]
+}
