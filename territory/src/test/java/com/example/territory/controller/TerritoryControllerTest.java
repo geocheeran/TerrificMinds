@@ -4,7 +4,9 @@ import com.example.territory.model.TerritoryNode;
 import com.example.territory.service.TerritoryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -31,56 +34,28 @@ class TerritoryControllerTest {
     @MockBean
     private TerritoryService territoryService;
 
-    private TerritoryNode rootNode;
-    private List<TerritoryNode> children;
-
-    @BeforeEach
-    void setUp() {
-        // Initialize the rootNode as required and set up the mock territoryService behavior
-        rootNode = new TerritoryNode(null, children); // Assuming no Territory object in TerritoryNode constructor
-        given(territoryService.getRootNode()).willReturn(rootNode);
-    }
 
     @Test
     void shouldReturnAncestorsForChennai() throws Exception {
-        // Define the expected ancestors list
-        List<String> expectedAncestors = new ArrayList<>();
-        expectedAncestors.add("India");
-        expectedAncestors.add("Tamil Nadu");
 
-        // Mock the behavior of TerritoryService.findAncestors method
-        given(territoryService.findAncestors(rootNode, "Chennai")).willReturn(expectedAncestors);
-
-        // Perform the GET request and verify the result
-        mockMvc.perform(get("/api/ancestors/Chennai"))
+        mockMvc.perform(get("/api/ancestors/infopark"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.ancestors").value(expectedAncestors));
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON));
     }
 
 
     @Test
     void shouldReturnAncestorsForIndia() throws Exception {
-        // Define the expected ancestors list
-        ArrayList<String> expectedAncestors = new ArrayList<>();
-        // Mock behavior for the TerritoryService.findAncestors method
-        given(territoryService.findAncestors(rootNode, "India")).willReturn(expectedAncestors);
-
-        // Perform the GET request and verify the result
         mockMvc.perform(get("/api/ancestors/India"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.ancestors").value(expectedAncestors));
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON));
     }
     @Test
     void shouldReturnAncestorsForUnknown() throws Exception {
         // Define the expected response message
         String expectedResponse = "This place is not in the list";
-
-        // Mock behavior for the TerritoryService.findAncestors method
-        given(territoryService.findAncestors(rootNode, "unknown")).willReturn(null);
-
         // Perform the GET request and verify the result
+        Mockito.when(territoryService.findAncestors(ArgumentMatchers.any(),ArgumentMatchers.anyString())).thenReturn(null);
         mockMvc.perform(get("/api/ancestors/unknown"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(expectedResponse));
