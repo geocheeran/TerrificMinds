@@ -29,6 +29,7 @@ Before you begin, make sure you have the following installed on your machine:
 2. Change into the project directory:
 
     ```bash
+    cd TerrificMinds
     cd territory
     ```
 
