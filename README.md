@@ -44,7 +44,7 @@ Before you begin, make sure you have the following installed on your machine:
 2. Navigate to the `TerritoryApplication` class in the `src/main/java/com/example/territory` directory.
 3. Run the `main` method in the `TerritoryApplication` class.
 4. The application will start on `http://localhost:8080`.
-5.You can modify the list of territories in the JSON file located at `src/main/resources/territories.json`.
+5. You can modify the list of territories in the JSON file located at `src/main/resources/territories.json`.
 
 ## Testing the APIs
 
