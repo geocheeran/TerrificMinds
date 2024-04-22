@@ -33,15 +33,9 @@ Before you begin, make sure you have the following installed on your machine:
     cd territory
     ```
 
-3. Build the project using Maven:
-
-    ```bash
-    mvn clean install
-    ```
-
 ## Running the Application
 
-1. Open the project in IntelliJ IDEA or your preferred IDE.
+1. Open the project in IntelliJ IDEA (or your preferred IDE) by navigating to the folder Repository/TerrifficMinds/territory and selecting it as the project root.
 2. Navigate to the `TerritoryApplication` class in the `src/main/java/com/example/territory` directory.
 3. Run the `main` method in the `TerritoryApplication` class.
 4. The application will start on `http://localhost:8080`.
